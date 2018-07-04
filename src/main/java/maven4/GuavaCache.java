@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutionException;
 import com.google.common.cache.LoadingCache;
 
 public class GuavaCache {
+	/* Chinh sua tren server github */
 	private PrimeNumber getEmpUsingGuava(int id) throws ExecutionException {
 		LoadingCache<Integer, PrimeNumber> empCache = Maven4.getLoadingCache();
 		System.out.println("Cache size " + empCache.size() );
