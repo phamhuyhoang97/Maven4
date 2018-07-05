@@ -17,7 +17,9 @@ public class Maven4 {
 
 	private static LoadingCache<Integer, PrimeNumber> cache;
 	static {
-		cache = CacheBuilder.newBuilder().maximumSize(100).expireAfterWrite(10, TimeUnit.MINUTES)
+		cache = CacheBuilder.newBuilder().maximumSize(100)
+				.expireAfterAccess(10, TimeUnit.SECONDS)
+				.expireAfterWrite(20, TimeUnit.SECONDS)
 				.build(new CacheLoader<Integer, PrimeNumber>() {
 					@Override
 					public PrimeNumber load(Integer id) throws Exception {
