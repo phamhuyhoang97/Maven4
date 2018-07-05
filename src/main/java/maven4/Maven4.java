@@ -1,14 +1,7 @@
 package maven4;
 
-import static spark.Spark.*;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -38,30 +31,26 @@ public class Maven4 {
 		
 	}
 
-	
-	
 }
 class PrimeNumber{
 	private int n;
-	private String str;
+	private ArrayList<Integer> arr;
+	
 	public PrimeNumber(int n) {
 		this.n = n;
-		this.str = primes(n);
+		this.arr = primes(n);
 	}
 	
-	public String primes(int n) {
-		StringBuilder sb = new StringBuilder();
+	public static ArrayList<Integer> primes(int n) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
 		for (int i = 2; i <= n; i++) {
 			if(isPrime(i)) {
-				sb.append(" ");
-				sb.append(i);
+				arr.add(i);
 			}
 		}
-		return sb.toString();
+		return arr;
 
 	}
-	
-	
 	
 	public static boolean isPrime(int n) {
 		for (int i = 2; i < Math.sqrt(n); i++) {
@@ -78,8 +67,8 @@ class PrimeNumber{
 	public void setN(int n) {
 		this.n = n;
 	}
-	public String getStr() {
-		return str;
+	public ArrayList<Integer> getArr() {
+		return arr;
 	}
 	
 }
